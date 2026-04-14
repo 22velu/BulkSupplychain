@@ -1,0 +1,38 @@
+
+<div class="vendor-container">
+
+  <h2 class="mb-4">Project Inventory & Order</h2>
+
+  <form (ngSubmit)="placeOrder()">
+
+    <div class="grid">
+
+      <div class="card" *ngFor="let product of products">
+
+        <h4>{{ product.name }}</h4>
+
+        <p class="available">
+          Available: {{ product.available }} {{ product.unit }}
+        </p>
+
+        <!-- 🧮 Order Input -->
+        <input
+          type="number"
+          [(ngModel)]="product.orderQty"
+          name="{{ product.name }}"
+          placeholder="Enter quantity"
+          min="0"
+        />
+
+      </div>
+
+    </div>
+
+    <!-- 🚀 Submit -->
+    <div class="action">
+      <button type="submit" class="btn">Place Order</button>
+    </div>
+
+  </form>
+
+</div>
